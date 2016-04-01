@@ -12,6 +12,10 @@ html, body {
 	border:1px solid black;
 	color:red;
 }
+#check{
+	width:150px;
+	height:60px;
+}
 tr{
 	border:1px solid;
 }

@@ -51,6 +51,16 @@ function valida()
          }
   
    }
+   function CheckOsBox(id){
+	   if (id=="sim"){
+		document.getElementById("sim").checked =true;
+		document.getElementById("nao").checked =false;
+		}
+		if (id=="nao"){
+		document.getElementById("nao").checked =true;
+		document.getElementById("sim").checked =false;
+		}
+   }
 
 function somenteletras(e)
 	{

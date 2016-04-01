@@ -13,7 +13,7 @@
 		<tr>
 		<td colspan= "3"><h3 style="text-align:center">Cadastro de Cliente</h3></td>
 		</tr><tr>		
-		<td>CPF:*</td><td colspan= "2" style="width:500px"><input type="text" name="cpf" id="cpf" size="14" onblur="javascript: validarCPF(this.value);" onkeypress="javascript: mascara(this, cpf_mask);"  maxlength="14" /></td>
+		<td>CPF:*</td><td colspan= "2"><input type="text" name="cpf" id="cpf" size="14" onblur="javascript: validarCPF(this.value);" onkeypress="javascript: mascara(this, cpf_mask);"  maxlength="14" /></td>
 		</tr><tr>
 		<td>Nome:*</td><td colspan= "2"><input type ="text" id="nome" size="80" onKeypress="letramasc(this);return somenteletras(event)"onblur="letramasc(this)"/></td>
 		</tr><tr>
@@ -33,7 +33,9 @@
 		</tr><tr>
 		<td>Senha:*</td><td colspan= "2"><input type ="password" id="senha" size="15" onKeypress="return somenteletra(event)" minlength="6"/></td>
 		</tr><tr>
-		<td>Receber notificações:*</td><td><input type="checkbox" id="receber" name="sim" value="sim" onclick="mostrartexto()">Sim<input type="checkbox" id="receber" name="nao" value="nao" checked="checked" onclick="mostrartextos()">Não</td>
+		<td>Receber notificações:*</td><td id="check">
+		<input type="checkbox" id="sim" name="sim" value="sim" onclick="mostrartexto();CheckOsBox(this.id)">Sim
+		<input type="checkbox" id="nao" name="nao" value="nao" onclick="mostrartextos();CheckOsBox(this.id)">Não</td>
 		<td id="notificacao"></td>
 		</tr><tr>
 		<td>Obs:</td><td colspan= "2"><TextArea type ="text" name="obs" size="200" maxlength="200"></textarea></td>
