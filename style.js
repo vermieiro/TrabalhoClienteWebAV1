@@ -36,12 +36,43 @@ return false
 }
 }
 
-function mostrartexto(){
+ function MostrarValores(){
+if( document.getElementsByName("receber").checked =="nao"){
+	alert("CPF: "+document.cadastro.cpf.value+"\n Nome: "+document.cadastro.nome.value+"\n Endereco: "+
+	 document.cadastro.endereco.value+"\n Sexo: "+document.cadastro.sel.value+
+	 "\n Telefone: "+document.cadastro.telefone.value+"\n Email(Login): "+document.cadastro.email.value+
+	 "\n Senha: "+document.cadastro.senha.value+"\n Receber Notificacao: Sim"+"\n Obs: "+document.cadastro.obs.value);
+}  else {alert("CPF: "+document.cadastro.cpf.value+"\n Nome: "+document.cadastro.nome.value+"\n Endereco: "+
+	 document.cadastro.endereco.value+"\n Sexo: "+document.cadastro.sel.value+
+	 "\n Telefone: "+document.cadastro.telefone.value+"\n Email(Login): "+document.cadastro.email.value+
+	 "\n Senha: "+document.cadastro.senha.value+"\n Receber Notificacao: Nao"+"\n Obs: "+document.cadastro.obs.value);
+		}
+
+    }
+
+
+
+ 
+function Mascara(objeto){ 
+   if(objeto.value.length == 0)
+     objeto.value = '(' + objeto.value;
+
+   if(objeto.value.length == 3)
+      objeto.value = objeto.value + ')';
+
+ if(objeto.value.length == 8)
+     objeto.value = objeto.value + '-';
+}
+
+
+function MostrarTexto(){
 	document.getElementById("notificacao").innerHTML = "A qualquer momento você poderá cancelar o recebimento dos e-mail's de promoção enviando um e-mail com o assunto STOP MAIL para o endereço contato@estacio.br";
 }
-function mostrartextos(){
+function TirarTexto(){
 	document.getElementById("notificacao").innerHTML = "";
 }
+
+
 function valida()
    {
        if (document.cadastro.sel.value=="")
@@ -62,7 +93,10 @@ function valida()
 		}
    }
 
-function somenteletras(e)
+   
+   
+   
+function SomenteLetras(e)
 	{
 		var expressao;
 
@@ -77,16 +111,12 @@ function somenteletras(e)
 		{
 			return false;
 		}
-	}
-		
-	
-	function letramasc(campo)
-	{
+}	
+	function LetraMasc(campo){
 		campo.value = campo.value.toUpperCase();
-	}
+}
 	
-	
-	function somenteletra(e)
+	function LetraNumero(e)
 	{
 		var expressao;
 
@@ -114,43 +144,6 @@ function vldigito(){
 
 		}
 }
-/*(function(){
-	"use strict";
-
-	var marcados = 0;
-	var verifyCheckeds = function($checks) {
-		if( marcados>=1 ) {
-			loop($checks, function($element) {
-				$element.disabled = $element.checked ? '' : 'disabled';
-			});
-		} else {
-			loop($checks, function($element) {
-				$element.disabled = '';
-			});
-		}
-	};
-	var loop = function($elements, cb) {
-		var max = $elements.length;
-		while(max--) {
-			cb($elements[max]);
-		}
-	}
-	var count = function($element) {
-		return $element.checked ? marcados + 1 : marcados - 1;
-	}
-	window.onload = function(){
-		var $checks = document.querySelectorAll('input[type="checkbox"]');
-		loop($checks, function($element) {
-			$element.onclick = function(){
-				marcados = count(this);
-				verifyCheckeds($checks);
-			}
-			if($element.checked) marcados = marcados + 1;
-		});
-		verifyCheckeds($checks);
-	}
-}());*/
-
 
 function validarCPF( cpf ){
 	var filtro = /^\d{3}.\d{3}.\d{3}-\d{2}$/i;
